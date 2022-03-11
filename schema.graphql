@@ -1,0 +1,23 @@
+type Query {
+   languages:[Language],
+   countries: [Country]
+}
+
+type Language {
+   id:ID!
+   token: String
+   nom_fr:String
+   nom_eng:String
+   code_iso:String
+   created_at:String
+   active:String
+}
+
+type Country {
+   id:ID!
+   token:String
+   nom:String 
+   flag:Float
+}
+
+
