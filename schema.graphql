@@ -1,6 +1,10 @@
 type Query {
    languages:[Language],
-   countries: [Country]
+   countries: [Country],
+   themes: [Theme]
+   sourcesScrap:[SourceScrap]
+   sources:[Source]
+   newsArticles:[NewsArticle]
 }
 
 type Language {
@@ -11,6 +15,9 @@ type Language {
    code_iso:String
    created_at:String
    active:String
+   themesByLanguage:[Theme]
+   sourcesScrapByLanguage: [SourceScrap]
+   newsArticlesByLanguage: [NewsArticle]
 }
 
 type Country {
@@ -18,6 +25,52 @@ type Country {
    token:String
    nom:String 
    flag:Float
+   sourcesScrapByCountry: [SourceScrap]
+   newsArticlesByCountry: [NewsArticle]
 }
+
+type Theme {
+   id:ID!
+   token:String
+   nom:String
+   code_langue:String 
+   created_at:String 
+   active:String
+   newsArticlesByTheme: [NewsArticle]
+}
+
+type SourceScrap {
+   id:ID!
+   token:String
+   token_source:String
+   token_theme:String
+   url_scrap:String
+   created_at:String
+   active:String
+}
+
+type Source {
+   id:ID!
+   nom:String
+   url:String
+   token_pays:String
+   token_langue:String
+   created_at:String
+}
+
+type NewsArticle {
+   id:ID!
+   token:String
+   titre:String
+   subtitle:String
+   href:String
+   image:String
+   pays:String
+   date_published:String
+   token_source_scrap:String
+   tags:String
+   created_at:String
+}
+
 
 
